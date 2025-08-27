@@ -3,25 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <title>ポモドーロタイマー</title>
-</head>
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
     <div class="container">
+        <!-- Gamification Header -->
+        <div class="gamification-header">
+            <div class="player-info">
+                <div class="level-badge">
+                    <span class="level-text">Lv.</span>
+                    <span id="player-level">1</span>
+                </div>
+                <div class="xp-container">
+                    <div class="xp-bar">
+                        <div class="xp-progress" id="xp-progress"></div>
+                    </div>
+                    <div class="xp-text">
+                        <span id="current-xp">0</span> / <span id="xp-to-next">100</span> XP
+                    </div>
+                </div>
+            </div>
+            <div class="streak-info">
+                <div class="streak-counter">
+                    🔥 <span id="current-streak">0</span> 日連続
+                </div>
+                <div class="achievements-count">
+                    🏆 <span id="achievements-count">0</span>/<span id="total-achievements">0</span>
+                </div>
+            </div>
+        </div>
+
         <h1 style="margin-bottom: 24px;">ポモドーロタイマー</h1>
+        
+        <!-- Timer Section -->
         <div class="timer" id="time">25:00</div>
         <div class="buttons">
             <button id="start">開始</button>
             <button id="reset">リセット</button>
         </div>
-        <div class="status">作業中</div>
+        <div class="status" id="status">作業中</div>
         <div class="progress">
-            <div class="progress-bar" style="width:40%"></div>
+            <div class="progress-bar" id="timer-progress" style="width:0%"></div>
         </div>
-        <div style="width:100%; display:flex; justify-content:space-between; font-size:16px;">
-            <span id="count">0 完了</span>
-            <span id="focus">0分 集中時間</span>
+        
+        <!-- Stats Section -->
+        <div class="stats-section">
+            <div style="width:100%; display:flex; justify-content:space-between; font-size:16px;">
+                <span id="count">0 完了</span>
+                <span id="focus">0分 集中時間</span>
+            </div>
+        </div>
+
+        <!-- Achievements Section -->
+        <div class="achievements-section" id="achievements-section" style="display:none;">
+            <h3>🏆 実績</h3>
+            <div class="achievements-grid" id="achievements-grid">
+                <!-- Achievements will be populated here -->
+            </div>
+        </div>
+
+        <!-- Statistics Toggle -->
+        <div class="stats-toggle">
+            <button id="toggle-stats" onclick="toggleStatsView()">📊 統計を表示</button>
+        </div>
+
+        <!-- Statistics Section -->
+        <div class="statistics-section" id="statistics-section" style="display:none;">
+            <h3>📈 統計</h3>
+            <div class="stats-period-selector">
+                <button onclick="loadStatistics('week')" class="active">週間</button>
+                <button onclick="loadStatistics('month')">月間</button>
+            </div>
+            <div class="stats-summary" id="stats-summary">
+                <!-- Stats summary will be populated here -->
+            </div>
+            <div class="stats-chart" id="stats-chart">
+                <!-- Simple text-based chart will be populated here -->
+            </div>
         </div>
     </div>
+
+    <!-- Achievement Notification -->
+    <div class="achievement-notification" id="achievement-notification" style="display:none;">
+        <div class="notification-content">
+            <div class="notification-icon" id="notification-icon">🏆</div>
+            <div class="notification-text">
+                <div class="notification-title" id="notification-title">実績解除！</div>
+                <div class="notification-description" id="notification-description"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Level Up Notification -->
+    <div class="level-up-notification" id="level-up-notification" style="display:none;">
+        <div class="notification-content">
+            <div class="notification-icon">⭐</div>
+            <div class="notification-text">
+                <div class="notification-title">レベルアップ！</div>
+                <div class="notification-description" id="level-up-text">レベル 2 に到達しました！</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/timer.js"></script>
 </body>
 </html>

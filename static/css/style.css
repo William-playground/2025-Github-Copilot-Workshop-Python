@@ -17,6 +17,71 @@ body {
     align-items: center;
 }
 
+/* Gamification Header */
+.gamification-header {
+    width: 100%;
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    padding: 16px;
+    color: white;
+    box-shadow: 0 2px 12px rgba(102, 126, 234, 0.3);
+}
+
+.player-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.level-badge {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 8px 12px;
+    margin-right: 12px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.xp-container {
+    flex: 1;
+}
+
+.xp-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 4px;
+}
+
+.xp-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #ffd700, #ffed4e);
+    border-radius: 4px;
+    transition: width 0.5s ease;
+    width: 0%;
+}
+
+.xp-text {
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+.streak-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.streak-counter, .achievements-count {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 8px;
+    border-radius: 8px;
+}
+
+/* Timer Section */
 .timer {
     font-size: 64px;
     font-weight: bold;
@@ -40,8 +105,14 @@ button {
     cursor: pointer;
     transition: background 0.2s;
 }
+
 button:hover {
     background: #c0392b;
+}
+
+button:disabled {
+    background: #bdc3c7;
+    cursor: not-allowed;
 }
 
 .progress {
@@ -52,10 +123,11 @@ button:hover {
     overflow: hidden;
     margin-bottom: 16px;
 }
+
 .progress-bar {
     height: 100%;
     background: #e74c3c;
-    width: 40%; /* 仮の値 */
+    width: 0%;
     transition: width 0.3s;
 }
 
@@ -63,4 +135,240 @@ button:hover {
     font-size: 18px;
     color: #555;
     margin-bottom: 8px;
+}
+
+.stats-section {
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+/* Achievements Section */
+.achievements-section {
+    width: 100%;
+    margin-top: 24px;
+    padding: 16px;
+    background: #f8f9fa;
+    border-radius: 12px;
+}
+
+.achievements-section h3 {
+    margin: 0 0 16px 0;
+    color: #333;
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+}
+
+.achievement-item {
+    background: white;
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.achievement-item:hover {
+    transform: translateY(-2px);
+}
+
+.achievement-item.unlocked {
+    border: 2px solid #ffd700;
+    background: linear-gradient(135deg, #fff9c4, #fff);
+}
+
+.achievement-icon {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.achievement-name {
+    font-weight: bold;
+    font-size: 12px;
+    margin-bottom: 4px;
+    color: #333;
+}
+
+.achievement-description {
+    font-size: 10px;
+    color: #666;
+    line-height: 1.2;
+}
+
+/* Statistics Section */
+.stats-toggle {
+    margin: 16px 0;
+}
+
+.stats-toggle button {
+    background: #3498db;
+    font-size: 14px;
+    padding: 8px 16px;
+}
+
+.stats-toggle button:hover {
+    background: #2980b9;
+}
+
+.statistics-section {
+    width: 100%;
+    margin-top: 16px;
+    padding: 16px;
+    background: #f8f9fa;
+    border-radius: 12px;
+}
+
+.statistics-section h3 {
+    margin: 0 0 16px 0;
+    color: #333;
+}
+
+.stats-period-selector {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.stats-period-selector button {
+    background: #6c757d;
+    font-size: 14px;
+    padding: 6px 12px;
+    flex: 1;
+}
+
+.stats-period-selector button.active {
+    background: #007bff;
+}
+
+.stats-summary {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.stat-item {
+    background: white;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #e74c3c;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: #666;
+    margin-top: 4px;
+}
+
+.stats-chart {
+    background: white;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.chart-day {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.chart-day-label {
+    width: 40px;
+    font-size: 12px;
+    color: #666;
+}
+
+.chart-bar-container {
+    flex: 1;
+    height: 20px;
+    background: #f0f0f0;
+    border-radius: 4px;
+    margin: 0 8px;
+    overflow: hidden;
+}
+
+.chart-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #e74c3c, #c0392b);
+    border-radius: 4px;
+    transition: width 0.5s ease;
+}
+
+.chart-value {
+    width: 30px;
+    font-size: 12px;
+    color: #333;
+    text-align: right;
+}
+
+/* Notifications */
+.achievement-notification, .level-up-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #ffd700, #ffed4e);
+    color: #333;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    transform: translateX(400px);
+    transition: transform 0.5s ease;
+    z-index: 1000;
+    max-width: 300px;
+}
+
+.achievement-notification.show, .level-up-notification.show {
+    transform: translateX(0);
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+}
+
+.notification-icon {
+    font-size: 32px;
+    margin-right: 12px;
+}
+
+.notification-title {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.notification-description {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .container {
+        margin: 20px;
+        padding: 24px 16px;
+    }
+    
+    .timer {
+        font-size: 48px;
+    }
+    
+    .achievements-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+    
+    .stats-summary {
+        grid-template-columns: 1fr;
+    }
 }
