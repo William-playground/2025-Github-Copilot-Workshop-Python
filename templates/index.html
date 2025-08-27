@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>ポモドーロタイマー</title>
-</head>
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
     <div class="container">
-        <h1 style="margin-bottom: 24px;">ポモドーロタイマー</h1>
+        <div class="header">
+            <h1 style="margin-bottom: 24px;">ポモドーロタイマー</h1>
+            <button id="settings-btn" class="settings-btn" title="設定">⚙️</button>
+        </div>
         <div class="timer" id="time">25:00</div>
         <div class="buttons">
             <button id="start">開始</button>
@@ -16,12 +18,76 @@
         </div>
         <div class="status">作業中</div>
         <div class="progress">
-            <div class="progress-bar" style="width:40%"></div>
+            <div class="progress-bar" style="width:0%"></div>
         </div>
         <div style="width:100%; display:flex; justify-content:space-between; font-size:16px;">
             <span id="count">0 完了</span>
             <span id="focus">0分 集中時間</span>
         </div>
     </div>
+
+    <!-- 設定モーダル -->
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>設定</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="setting-group">
+                    <label>作業時間</label>
+                    <select id="work-duration">
+                        <option value="15">15分</option>
+                        <option value="25" selected>25分</option>
+                        <option value="35">35分</option>
+                        <option value="45">45分</option>
+                    </select>
+                </div>
+                
+                <div class="setting-group">
+                    <label>休憩時間</label>
+                    <select id="break-duration">
+                        <option value="5" selected>5分</option>
+                        <option value="10">10分</option>
+                        <option value="15">15分</option>
+                    </select>
+                </div>
+                
+                <div class="setting-group">
+                    <label>テーマ</label>
+                    <select id="theme">
+                        <option value="light" selected>ライト</option>
+                        <option value="dark">ダーク</option>
+                        <option value="focus">フォーカス</option>
+                    </select>
+                </div>
+                
+                <div class="setting-group">
+                    <label>サウンド設定</label>
+                    <div class="sound-settings">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="sound-start" checked>
+                            開始音
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="sound-end" checked>
+                            終了音
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="sound-tick">
+                            tick音
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="save-settings" class="btn-primary">保存</button>
+                <button id="cancel-settings" class="btn-secondary">キャンセル</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/timer.js"></script>
+    <script src="/static/js/settings.js"></script>
 </body>
 </html>
