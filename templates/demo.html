@@ -2,26 +2,30 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>ポモドーロタイマー</title>
+    <title>ポモドーロタイマー - デモ版</title>
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
     <div class="container">
-        <h1 style="margin-bottom: 24px;">ポモドーロタイマー</h1>
-        <div class="timer" id="time">25:00</div>
+        <h1 style="margin-bottom: 24px;">ポモドーロタイマー - デモ版</h1>
+        <p style="text-align: center; color: #666; margin-bottom: 16px;">（10秒タイマーで色の変化をテスト）</p>
+        <div class="timer" id="time">00:10</div>
         <div class="buttons">
             <button id="start">開始</button>
             <button id="reset">リセット</button>
         </div>
         <div class="status">作業中</div>
         <div class="progress">
-            <div class="progress-bar" style="width:40%"></div>
+            <div class="progress-bar" style="width:0%"></div>
         </div>
         <div style="width:100%; display:flex; justify-content:space-between; font-size:16px;">
             <span id="count">0 完了</span>
             <span id="focus">0分 集中時間</span>
         </div>
+        <div style="margin-top: 16px; text-align: center;">
+            <a href="/" style="color: #3498db; text-decoration: none;">← 通常版に戻る</a>
+        </div>
     </div>
-    <script src="/static/js/timer.js"></script>
+    <script src="/static/js/timer-demo.js"></script>
 </body>
 </html>
